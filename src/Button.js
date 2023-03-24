@@ -1,9 +1,9 @@
-import React, { Fragment } from 'react';
+import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { darken, rgba } from 'polished';
-import { color, typography } from './shared/styles';
-import { easing } from './shared/animation';
+import {darken, rgba} from 'polished';
+import {color, typography} from './shared/styles';
+import {easing} from './shared/animation';
 
 const Text = styled.span`
   display: inline-block;
@@ -19,17 +19,17 @@ const Loading = styled.span`
 `;
 
 const APPEARANCES = {
-  PRIMARY: 'primary',
-  PRIMARY_OUTLINE: 'primaryOutline',
-  SECONDARY: 'secondary',
-  SECONDARY_OUTLINE: 'secondaryOutline',
-  TERTIARY: 'tertiary',
-  OUTLINE: 'outline',
+    PRIMARY: 'primary',
+    PRIMARY_OUTLINE: 'primaryOutline',
+    SECONDARY: 'secondary',
+    SECONDARY_OUTLINE: 'secondaryOutline',
+    TERTIARY: 'tertiary',
+    OUTLINE: 'outline',
 };
 
 const SIZES = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
+    SMALL: 'small',
+    MEDIUM: 'medium',
 };
 
 const StyledButton = styled.button`
@@ -43,7 +43,7 @@ const StyledButton = styled.button`
   text-align: center;
   text-decoration: none;
   transition: all 150ms ease-out;
-  transform: translate3d(0,0,0);
+  transform: translate3d(0, 0, 0);
   vertical-align: top;
   white-space: nowrap;
   user-select: none;
@@ -57,8 +57,8 @@ const StyledButton = styled.button`
   line-height: 1;
 
   ${props =>
-    !props.isLoading &&
-    `
+          !props.isLoading &&
+          `
       &:hover {
         transform: translate3d(0, -2px, 0);
         box-shadow: rgba(0, 0, 0, 0.2) 0 2px 6px 0;
@@ -76,9 +76,8 @@ const StyledButton = styled.button`
         box-shadow: ${rgba(color.primary, 0.2)} 0 8px 18px 0px;
       }
     `}
-
   ${Text} {
-    transform: scale3d(1,1,1) translate3d(0,0,0);
+    transform: scale3d(1, 1, 1) translate3d(0, 0, 0);
     transition: transform 700ms ${easing.rubber};
     opacity: 1;
   }
@@ -100,8 +99,8 @@ const StyledButton = styled.button`
   }
 
   ${props =>
-    props.disabled &&
-    `
+          props.disabled &&
+          `
       cursor: not-allowed !important;
       opacity: 0.5;
       &:hover {
@@ -110,8 +109,8 @@ const StyledButton = styled.button`
     `}
 
   ${props =>
-    props.isUnclickable &&
-    `
+          props.isUnclickable &&
+          `
       cursor: default !important;
       pointer-events: none;
       &:hover {
@@ -120,8 +119,8 @@ const StyledButton = styled.button`
     `}
 
   ${props =>
-    props.isLoading &&
-    `
+          props.isLoading &&
+          `
       cursor: progress !important;
       opacity: 0.7;
 
@@ -142,8 +141,8 @@ const StyledButton = styled.button`
     `}
 
   ${props =>
-    props.containsIcon &&
-    `
+          props.containsIcon &&
+          `
       svg {
         display: block;
         margin: 0;
@@ -152,13 +151,13 @@ const StyledButton = styled.button`
     `}
 
   ${props =>
-    props.appearance === APPEARANCES.PRIMARY &&
-    `
+          props.appearance === APPEARANCES.PRIMARY &&
+          `
       background: ${color.primary};
       color: ${color.lightest};
 
       ${!props.isLoading &&
-        `
+          `
           &:hover {
             background: ${darken(0.05, color.primary)};
           }
@@ -175,13 +174,13 @@ const StyledButton = styled.button`
     `}
 
   ${props =>
-    props.appearance === APPEARANCES.SECONDARY &&
-    `
+          props.appearance === APPEARANCES.SECONDARY &&
+          `
       background: ${color.secondary};
       color: ${color.lightest};
 
       ${!props.isLoading &&
-        `
+          `
           &:hover {
             background: ${darken(0.05, color.secondary)};
           }
@@ -198,13 +197,13 @@ const StyledButton = styled.button`
     `}
 
   ${props =>
-    props.appearance === APPEARANCES.TERTIARY &&
-    `
+          props.appearance === APPEARANCES.TERTIARY &&
+          `
       background: ${color.tertiary};
       color: ${color.darkest};
 
       ${!props.isLoading &&
-        `
+          `
           &:hover {
             background: ${darken(0.05, color.tertiary)};
           }
@@ -221,14 +220,14 @@ const StyledButton = styled.button`
     `}
 
   ${props =>
-    props.appearance === APPEARANCES.OUTLINE &&
-    `
+          props.appearance === APPEARANCES.OUTLINE &&
+          `
       box-shadow: ${color.medium} 0 0 0 1px inset;
       color: ${color.dark};
       background: transparent;
 
       ${!props.isLoading &&
-        `
+          `
           &:hover {
             box-shadow: ${color.mediumdark} 0 0 0 1px inset;
           }
@@ -240,22 +239,22 @@ const StyledButton = styled.button`
           }
           &:focus {
             box-shadow: ${color.medium} 0 0 0 1px inset, ${rgba(
-          color.secondary,
-          0.4
-        )} 0 1px 9px 2px;
+                  color.secondary,
+                  0.4,
+          )} 0 1px 9px 2px;
           }
           &:focus:hover {
             box-shadow: ${color.medium} 0 0 0 1px inset, ${rgba(
-          color.secondary,
-          0.2
-        )} 0 8px 18px 0px;
+                  color.secondary,
+                  0.2,
+          )} 0 8px 18px 0px;
           }
         `};
     `};
 
-    ${props =>
-      props.appearance === APPEARANCES.PRIMARY_OUTLINE &&
-      `
+  ${props =>
+          props.appearance === APPEARANCES.PRIMARY_OUTLINE &&
+          `
         box-shadow: ${color.primary} 0 0 0 1px inset;
         color: ${color.primary};
 
@@ -277,9 +276,9 @@ const StyledButton = styled.button`
         }
       `};
 
-    ${props =>
-      props.appearance === APPEARANCES.SECONDARY_OUTLINE &&
-      `
+  ${props =>
+          props.appearance === APPEARANCES.SECONDARY_OUTLINE &&
+          `
         box-shadow: ${color.secondary} 0 0 0 1px inset;
         color: ${color.secondary};
 
@@ -308,79 +307,79 @@ const StyledButton = styled.button`
 const ButtonLink = StyledButton.withComponent('a');
 
 const applyStyle = ButtonWrapper => {
-  return (
-    ButtonWrapper &&
-    StyledButton.withComponent(({ containsIcon, isLoading, isUnclickable, ...rest }) => (
-      <ButtonWrapper {...rest} />
-    ))
-  );
+    return (
+        ButtonWrapper &&
+        StyledButton.withComponent(({containsIcon, isLoading, isUnclickable, ...rest}) => (
+            <ButtonWrapper {...rest} />
+        ))
+    );
 };
 
 export function Button({
-  isDisabled,
-  isLoading,
-  loadingText,
-  isLink,
-  children,
-  ButtonWrapper,
-  ...props
+    isDisabled,
+    isLoading,
+    loadingText,
+    isLink,
+    children,
+    ButtonWrapper,
+    ...props
 }) {
-  const buttonInner = (
-    <Fragment>
-      <Text>{children}</Text>
-      {isLoading && <Loading>{loadingText || 'Loading...'}</Loading>}
-    </Fragment>
-  );
+    const buttonInner = (
+        <Fragment>
+            <Text>{children}</Text>
+            {isLoading && <Loading>{loadingText || 'Loading...'}</Loading>}
+        </Fragment>
+    );
 
-  const StyledButtonWrapper = React.useMemo(() => applyStyle(ButtonWrapper), [ButtonWrapper]);
+    const StyledButtonWrapper = React.useMemo(() => applyStyle(ButtonWrapper), [ButtonWrapper]);
 
-  let SelectedButton = StyledButton;
-  if (ButtonWrapper) {
-    SelectedButton = StyledButtonWrapper;
-  } else if (isLink) {
-    SelectedButton = ButtonLink;
-  }
+    let SelectedButton = StyledButton;
+    if (ButtonWrapper) {
+        SelectedButton = StyledButtonWrapper;
+    } else if (isLink) {
+        SelectedButton = ButtonLink;
+    }
 
-  return (
-    <SelectedButton isLoading={isLoading} disabled={isDisabled} {...props}>
-      {buttonInner}
-    </SelectedButton>
-  );
+    return (
+        <SelectedButton isLoading={isLoading} disabled={isDisabled} {...props}>
+            {buttonInner}
+        </SelectedButton>
+    );
 }
 
 Button.propTypes = {
-  isLoading: PropTypes.bool,
-  /**
-   When a button is in the loading state you can supply custom text
-  */
-  loadingText: PropTypes.node,
-  /**
-   Buttons that have hrefs should use <a> instead of <button>
-  */
-  isLink: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
-  isDisabled: PropTypes.bool,
-  /**
-   Prevents users from clicking on a button multiple times (for things like payment forms)
-  */
-  isUnclickable: PropTypes.bool,
-  /**
-   Buttons with icons by themselves have a circular shape
-  */
-  containsIcon: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  ButtonWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
+    isLoading: PropTypes.bool,
+    /**
+     When a button is in the loading state you can supply custom text
+     */
+    loadingText: PropTypes.node,
+    /**
+     Buttons that have hrefs should use <a> instead of <button>
+     */
+    isLink: PropTypes.bool,
+    children: PropTypes.node.isRequired,
+    appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
+    isDisabled: PropTypes.bool,
+    /**
+     Prevents users from clicking on a button multiple times (for things like payment forms)
+     */
+    isUnclickable: PropTypes.bool,
+    /**
+     Buttons with icons by themselves have a circular shape
+     */
+    containsIcon: PropTypes.bool,
+    size: PropTypes.oneOf(Object.values(SIZES)),
+    ButtonWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
 };
 
 Button.defaultProps = {
-  isLoading: false,
-  loadingText: null,
-  isLink: false,
-  appearance: APPEARANCES.TERTIARY,
-  isDisabled: false,
-  isUnclickable: false,
-  containsIcon: false,
-  size: SIZES.MEDIUM,
-  ButtonWrapper: undefined,
+    isLoading: false,
+    loadingText: null,
+    isLink: false,
+    appearance: APPEARANCES.TERTIARY,
+    isDisabled: false,
+    isUnclickable: false,
+    containsIcon: false,
+    size: SIZES.MEDIUM,
+    ButtonWrapper: undefined,
 };
