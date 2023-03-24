@@ -4,4 +4,4 @@
 
 #### Authors: 1
 
-- [Huong Nguyen](https://github.com/huongnguyenduc)
+- [Huong Nguyen Duc](https://github.com/huongnguyenduc)
